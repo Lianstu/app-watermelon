@@ -1,0 +1,28 @@
+<ion-view view-title='登录Watermelon' cache-view="false" class="login-page">
+  <ion-content class="login-background" scroll="false">
+    <header>
+      <img class="home-img" src="img/login_01@3x.png">
+      <div class="head-content">
+        <img class="logo-icon" src="img/login_log_watermelon@3.png"/>
+        <h2>Watermelon</h2>
+      </div>
+    </header>
+    <form ng-submit="ulc.loginByPassword()" class="login-form" novalidate>
+      <div class="list">
+        <label class="item item-input">
+          <i class="icon ion-ios-person-outline placeholder-icon"></i>
+          <input placeholder="请输入您的手机号码" ng-model="views.mobile" type="tel">
+        </label>
+        <label class="item item-input">
+          <i class="icon ion-ios-locked-outline placeholder-icon"></i>
+          <input type="text" placeholder="请输入您的密码" ng-model="views.password">
+        </label>
+      </div>
+      <a class="button button-clear button-positive reset-button" ng-click="jump('user.rest')">找回密码</a>
+      <a class="button button-clear button-positive join-button" ng-click="jump('user.join')">我要注册</a>
+      <div class="login-button">
+        <button class="button button-full button-positive">登录</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
