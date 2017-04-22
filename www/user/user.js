@@ -19,11 +19,11 @@ angular.module('main.user', [])
   })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/user/login');
-
+    console.log("come in user")
   })
 
-  .run(function($ionicPlatform) {//用来启动你的应用，并且在注射器创建完成之后开始执行
-    $ionicPlatform.ready(function () {
-
-    })
-  })
+  //.run(function($ionicPlatform) {//用来启动你的应用，并且在注射器创建完成之后开始执行
+  //  $ionicPlatform.ready(function () {
+  //
+  //  })
+  //})

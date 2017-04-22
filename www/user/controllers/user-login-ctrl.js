@@ -1,7 +1,18 @@
 angular
-  .module('main.user', [])
-  .controller('LoginCtrl', ['$log', '$ionicHistory', '$scope', '$interval', '$state', '$stateParams', 'ngUser', 'mainService',userJoinCtrl])
+  .module('main.user')
+  .controller('LoginCtrl', ['$log', '$ionicHistory', '$scope', '$interval', '$state', '$stateParams', 'ngUser', 'mainService',LoginCtrl])
 
-function userJoinCtrl($log, $ionicHistory, $scope, $interval, $state, $stateParams, ngUser, mainService) {
-  console.log("hello")
+function LoginCtrl($log, $ionicHistory, $scope, $interval, $state, $stateParams, ngUser, mainService) {
+  var self = this;
+  self.loginByPassword = loginByPassword;
+  ngUser.initJPush2Use();
+
+  $scope.views = {
+    mobile: '',
+    password: ''
+  }
+
+  function loginByPassword() {
+    console.log("hello loginByPassword ")
+  }
 }

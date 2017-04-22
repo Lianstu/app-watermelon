@@ -20,6 +20,7 @@ function BaseCtrl($log, $rootScope, $state, $ionicPlatform, $location, $ionicHis
    * @param toParams 跳转函数
    */
   $rootScope.jump = function (route, toParams) {
+    console.log("$rootScope.jump")
     var params = toParams || {};
     $ionicViewSwitcher.nextDirection('forward');
     $state.go(route, params);
