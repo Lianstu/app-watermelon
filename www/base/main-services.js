@@ -67,7 +67,7 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
   }
   //退出
   function logout(successCb) {
-    LbUser.logout(function () {
+    User.logout(function () {
       if (window.plugins) {
         window.plugins.jPushPlugin.stopPush();
       }

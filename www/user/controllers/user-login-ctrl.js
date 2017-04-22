@@ -1,6 +1,6 @@
 angular
   .module('main.user')
-  .controller('LoginCtrl', ['$log', '$ionicHistory', '$scope', '$interval', '$state', '$stateParams', 'ngUser', 'mainService',LoginCtrl])
+  .controller('LoginCtrl', ['$log', '$ionicHistory', '$scope', '$interval', '$state', '$stateParams', 'ngUser', 'MainService',LoginCtrl])
 
 function LoginCtrl($log, $ionicHistory, $scope, $interval, $state, $stateParams, ngUser, mainService) {
   var self = this;
