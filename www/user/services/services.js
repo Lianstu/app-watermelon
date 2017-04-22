@@ -47,7 +47,7 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
     }
 
     function loginByPassword(mobile, password, successCb, errorCb) {
-        if (LbUser.isAuthenticated()) {
+        if (User.isAuthenticated()) {
             if (errorCb) {
                 errorCb(new Error('Already Logged-in. Please logout first!'));
             }
@@ -132,7 +132,7 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
      * @return {Boolean} true－已经登录；false－未登录
      */
     function isLogin() {
-        return LbUser.isAuthenticated();
+        return User.isAuthenticated();
     }
 
     /**
@@ -199,7 +199,7 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
     function setFranchisee(successCb, errorCb) {
         var userId = LoopBackAuth.currentUserId;
         if (userId) {
-            LbUser.franchisee({id: userId}, function (res) {
+            User.franchisee({id: userId}, function (res) {
                 MainService.setLocalStorage('current.franchisee', res);
                 if (successCb) {
                     successCb(res);
