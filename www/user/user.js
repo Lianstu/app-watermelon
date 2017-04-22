@@ -17,6 +17,11 @@ angular.module('main.user', [])
     controller:"JoinCtrl as ujc",
     templateUrl:"user/templates/join.html"
   })
+  .state('user.rest', {
+    url: '/rest',
+    controller:"RestCtrl as urc",
+    templateUrl:"user/templates/rest.html"
+  })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/user/login');
     console.log("come in user")
