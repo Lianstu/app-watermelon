@@ -30,7 +30,7 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
         initJPush2Use: initJPush2Use,
         stopJPush: stopJPush
     };
-
+    //获取验证码
     function getVerificationCode(mobile, successCb, errorCb) {
         $log.debug('mobile: ' + mobile);
         Checkcode.getVerifyCode(mobile, function (res) {
@@ -45,7 +45,7 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
             }
         });
     }
-
+    //用户登录服务获取数据
     function loginByPassword(mobile, password, successCb, errorCb) {
         if (User.isAuthenticated()) {
             if (errorCb) {
@@ -53,13 +53,12 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
             }
             return;
         }
-        franchisee.login({
-            mobile: mobile,
-            password: password
+        Appuser.loginbymobile({
+            "mobile":mobile,
+            "password":password
         }, function (accessToken) {
             $log.debug('loginByPassword accessToken :' + JSON.stringify(accessToken));
-
-            LoopBackAuth.setUser(accessToken.id, accessToken.userId, accessToken.user);
+            LoopBackAuth.setUser(accessToken.id, accessToken.userId, accessToken.Appuser);//用来保存user的id到loopbackAuth;
             LoopBackAuth.rememberMe = true;
             LoopBackAuth.save();
             setUserInfo(function () {
@@ -76,7 +75,12 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
         });
     }
 
-
+    //用来保存用户信息到本地
+    function setUserInfo(callback) {
+        MainService.setLocalStorage('currentUserData', LoopBackAuth.currentUserData);
+        return callback();
+    }
+    //验证密码
     function validatePassword(password, successCb, errorCb) {
         if (!password || password === '') {
             errorCb('请输入密码');
@@ -105,7 +109,7 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
             return;
         }
     }
-
+    //验证手机号
     //1开头，第二位可能是3/4/5/7/8等的任意一个，在加上后面的\d表示数字[0-9]的9位，总共加起来11位结束
     function validateMobile(mobile, successCb, errorCb) {
         var regex = /^0?(13[0-9]|15[0-9]|17[0135678]|18[0-9]|14[57])[0-9]{8}$/;
@@ -142,9 +146,11 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
     function getCurrentUser() {
         return LoopBackAuth.currentUserData;
     }
-
+    /**
+     * 用户注册
+     */
     function signUp(signData, successCb, errorCb) {
-        franchisee.signup(signData, function (res) {
+        Appuser.register(signData, function (res) {
             $log.debug('signUp result :' + JSON.stringify(res));
             if (successCb) {
                 return successCb(res);
@@ -165,14 +171,6 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
         userInfo.verificationCode = verificationCode;
     }
 
-    function setUserInfo(callback) {
-        setFranchisee(function () {
-            if (LoopBackAuth.currentUserData) {
-                MainService.setLocalStorage('currentUserData', LoopBackAuth.currentUserData);
-            }
-            return callback();
-        });
-    }
 
     function getUserInfo() {
         var currentUserData = MainService.getLocalStorage('current.franchisee');
@@ -221,9 +219,9 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
             setFranchisee(successCb, errorCb);
         }
     }
-
+    //rest页面重置密码;
     function resetPassword(resetData, successCb, errorCb) {
-        franchisee.resetPasswordByMobile(resetData, function (res) {
+        Appuser.resetPasswordByMobile(resetData, function (res) {
             if (successCb) {
                 successCb(res);
             }
