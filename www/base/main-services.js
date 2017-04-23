@@ -44,7 +44,7 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
       }
     });
   }
-
+  //做本地存储
   function setLocalStorage(key, value) {
     if (value) {
       if (typeof(value) === 'object') {

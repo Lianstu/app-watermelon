@@ -13,7 +13,8 @@ angular.module('Watermelon',[
 
   .config(['LoopBackResourceProvider', function (LoopBackResourceProvider) {
     // Change the URL where to access the LoopBack REST API server
-    LoopBackResourceProvider.setUrlBase('https://localhost:3000/api');
+    //LoopBackResourceProvider.setUrlBase('https://uclean-api.zhinengxiyifang.cn/api')
+    LoopBackResourceProvider.setUrlBase('http://localhost:3000/api');
   }])
   //.run(['$rootScope', '$ionicDeploy', '$ionicPlatform', '$log', function ($rootScope, $ionicDeploy, $ionicPlatform, $log) {
     //$rootScope.href = window.location.href;

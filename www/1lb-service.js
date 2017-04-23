@@ -1495,51 +1495,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *   populated with the actual data once the response is returned
              *   from the server.
              *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Appuser` object.)
-             * </em>
+             * Data properties:
+             *
+             *  - `ok` – `{string=}` -
              */
             "loginbymobile": {
               url: urlBase + "/appusers/loginbymobile",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Appuser#resetPasswordByMobile
-             * @methodOf lbServices.Appuser
-             *
-             * @description
-             *
-             * 通过手机号重置密码
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Appuser` object.)
-             * </em>
-             */
-            "resetPasswordByMobile": {
-              url: urlBase + "/appusers/resetPasswordByMobile",
               method: "POST",
             },
 
@@ -2816,80 +2777,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "getMyContent": {
               url: urlBase + "/contents/getMyContent",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Content#upvote
-             * @methodOf lbServices.Content
-             *
-             * @description
-             *
-             * 给发布内容点赞
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `result` – `{undefined=}` -
-             */
-            "upvote": {
-              url: urlBase + "/contents/upvote",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Content#postContentWithPic
-             * @methodOf lbServices.Content
-             *
-             * @description
-             *
-             * 发布带图片类信息
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `content_str` – `{string}` - 文字内容
-             *
-             *  - `Pic` – `{string}` - 图片
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            "postContentWithPic": {
-              url: urlBase + "/contents/postContentWithPic",
               method: "POST",
             },
 
