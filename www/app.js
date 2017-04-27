@@ -8,7 +8,8 @@ angular.module('Watermelon',[
   'ionic.service.core',
   'ionic.service.deploy',
   'main.service',
-  'main.user'
+  'main.user',
+  'main.home'
 ])
 
   .config(['LoopBackResourceProvider', function (LoopBackResourceProvider) {
