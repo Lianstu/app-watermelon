@@ -22,6 +22,11 @@ angular.module('main.user', [])
     controller:"RestCtrl as urc",
     templateUrl:"user/templates/rest.html"
   })
+  .state('user.info', {
+    url: '/info',
+    controller:"UserInfoCtrl as uic",
+    templateUrl:"user/templates/info.html"
+  })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/user/login');
     console.log("come in user")

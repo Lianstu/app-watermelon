@@ -1,0 +1,44 @@
+<!--优惠券说明-->
+<ion-view can-swipe-back="false" class="ujing-bg personal-msg" cache-view="true">
+  <ion-header-bar class="ujing-header">
+    <a class="button button-icon  ion-ios-arrow-left back" ng-click="goBack()"></a>
+    <h1 class="title title-center">个人信息</h1>
+  </ion-header-bar>
+  <ion-content class="near-room">
+    <div class="content-list " ng-click="views.setPictureClick()">
+      <div class="content-item">
+        <span>头像</span>
+        <img  class = "content-img" src="img/ionic.png" onerror="this.src='main/assets/images/logo.jpg'" ng-src="{{views.avatar}}" alt=""/>
+        <!--<i class="icon ion-ios-arrow-right"></i>-->
+      </div>
+    </div>
+
+    <div class="content-list">
+      <div class="content-item" ng-click="jump('user.nickname')">
+        <span>昵称</span>
+        <span class="nickname">{{views.nickname}}</span>
+      </div>
+    </div>
+    <div class="content-list">
+      <div class="content-item" ng-click="jump('tel')">
+        <span>手机号</span>
+        <span class="tel">{{views.mobile}}</span>
+      </div>
+    </div>
+    <div class="content-list">
+      <div class="content-item" ng-click="jump('tel')">
+        <span>西瓜号</span>
+        <span class="tel">{{views.watermelonNo}}</span>
+      </div>
+    </div>
+    <div class="content-list">
+      <div class="content-item" ng-click="jump('tel')">
+        <span>创建时间</span>
+        <span class="tel">{{views.createAt}}</span>
+      </div>
+    </div>
+    <div class="watermelon-empty">
+      <button class="button button-block button-positive" ng-click="uic.logout()">退出登录</button>
+    </div>
+  </ion-content>
+</ion-view>

@@ -46,17 +46,23 @@
     <script src="base/main.js"></script>
     <script src="base/mainCtrl.js"></script>
     <script src="base/main-services.js"></script>
+    <script src="base/footerCtrl.js"></script>
+    <script src="user/user.js"></script>
     <script src="user/controllers/user-login-ctrl.js"></script>
+    <script src="user/controllers/user-info-ctrl.js"></script>
     <script src="user/controllers/user-rest-ctrl.js"></script>
     <script src="user/controllers/user-join-ctrl.js"></script>
     <script src="user/services/services.js"></script>
     <script src="home/home.js"></script>
     <script src="home/services/services.js"></script>
     <script src="home/controllers/home.js"></script>
-    <script src="user/user.js"></script>
   </head>
   <body ng-app='Watermelon' ng-controller="BaseCtrl">
-  <ion-nav-view></ion-nav-view>
+  <div ng-cloak class="ng-cloak">
+    <!--ng-clocak防止未加载完导致的问题-->
+    <ion-nav-view></ion-nav-view>
+    <ng-include src="'base/footer.html'"></ng-include>
+  </div>
   <!--
       The nav bar that will be updated as we navigate between views.-->
 

@@ -20,10 +20,11 @@ function BaseCtrl($log, $rootScope, $state, $ionicPlatform, $location, $ionicHis
    * @param toParams 跳转函数
    */
   $rootScope.jump = function (route, toParams) {
-    console.log("$rootScope.jump")
+    console.log("$rootScope.jump——route-toParams",route, toParams)
     var params = toParams || {};
-    $ionicViewSwitcher.nextDirection('forward');
-    $state.go(route, params);
+      $state.go(route, params);
+      $ionicViewSwitcher.nextDirection('forward');//$ionicViewSwitcher用于动态变化
+
   };
 
   $rootScope.exit = function () {
@@ -32,6 +33,7 @@ function BaseCtrl($log, $rootScope, $state, $ionicPlatform, $location, $ionicHis
 
   $rootScope.goBack = function (backCount) {
     $ionicViewSwitcher.nextDirection('back');
+      console.log("goBack",$ionicHistory.backView(),backCount)
     if ($ionicHistory.backView()) {
       if (backCount) {
         $ionicHistory.goBack(backCount);

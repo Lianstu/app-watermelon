@@ -19,8 +19,8 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
         signUp: signUp,
         setPhoneNumber: setPhoneNumber,
         setVerificationCode: setVerificationCode,
-        setUserInfo: setUserInfo,
-        getUserInfo: getUserInfo,
+        setUserInfo: setUserInfo,//将内容设置到currentUserData中
+        getUserInfo: getUserInfo,//取currentUserData中数据
         getCouponList: getCouponList,
         getHelpList: getHelpList,
         setFranchisee: setFranchisee,
@@ -171,12 +171,13 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
         userInfo.verificationCode = verificationCode;
     }
 
-
+    //取currentUserData中数据
     function getUserInfo() {
-        var currentUserData = MainService.getLocalStorage('current.franchisee');
+        var currentUserData = MainService.getLocalStorage('currentUserData');
+        console.log("***currentUserData***",currentUserData)
         if (currentUserData) {
             currentUserData = JSON.parse(currentUserData);
-            if (currentUserData.userId) {
+            if (currentUserData.mobile) {
                 return currentUserData;
             } else {
                 $rootScope.jump('user.login');

@@ -3,6 +3,7 @@
  */
 'use strict';
 angular.module('main', [
-  'ionic'
+  'ionic',
+  'ui.router'
 ]);
 
