@@ -1,0 +1,8 @@
+<div ng-controller="FooterCtrl">
+    <div class="tabs tabs-icon-only watermelon-footer" ng-if="views.isShowFooter">
+        <a href="javascript:;" class="tab-item" ng-repeat="item in views.footerList" ng-click="views.toggleNav(item)">
+            <i ng-class="{'icon-off = ion-ios-chatboxes-outline': item === 'chat', 'ion-ios-people': item === 'friends','ion-earth': item === 'space', 'ion-ios-person': item === 'user', 'active': views.activeNav === item}"></i>
+        </a>
+    </div>
+</div>
+<!--ion-ios-chatbubble-outline-->
