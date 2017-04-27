@@ -29,7 +29,6 @@ function UserRestCtrl ($log, $state, $scope, $rootScope, $stateParams, $ionicHis
         if($scope.views.password != $scope.views.passwdSure){
           MainService.alertMsg("两次输入密码不一致")
         }else{//做数据库交互
-
           ngUser.resetPassword($scope.views,function(res){
             //todo提示更改成功跳转到登录页面
             console.log("resetPassword_res",res)
