@@ -15,6 +15,16 @@ angular.module('main.home', [])
                 //controller:"LoginCtrl as ulc",
                 templateUrl:"home/templates/home.html"
             })
+            .state('home.chat', {
+                url: '/chat',
+                //controller:"LoginCtrl as ulc",
+                templateUrl:"home/templates/home.html"
+            })
+            .state('home.friends', {
+                url: '/friends',
+                controller:"FriendCtrl as fdc",
+                templateUrl:"home/templates/friends.html"
+            })
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/home/home');
         console.log("come in home")

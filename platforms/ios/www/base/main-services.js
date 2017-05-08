@@ -14,7 +14,7 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
     getLocalStorage: getLocalStorage,
     removeLocalStorage: removeLocalStorage,
     logout: logout,
-    logout2: logout2,
+    logout2: logout2
   };
   function alertMsg(title, message, button, successCb) {
     button = button ? button : '确定';
@@ -33,7 +33,7 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
     showconfirmMsg = value;
   }
 
-
+  //用于退出时确定
   function confirmMsg(title, message, buttonArray, successCb) {
     buttonArray = buttonArray ? buttonArray : ['确定', '取消'];
     $cordovaDialogs.confirm(message, title, buttonArray).then(function (buttonIndex) {
@@ -44,7 +44,7 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
       }
     });
   }
-
+  //做本地存储
   function setLocalStorage(key, value) {
     if (value) {
       if (typeof(value) === 'object') {
@@ -53,7 +53,7 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
     }
     $window.localStorage[key] = value;
   }
-
+  //清除本地缓存退出
   function clearLocalStorage() {
     $window.localStorage.clear();
   }
@@ -65,12 +65,9 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
   function removeLocalStorage(key) {
     return $window.localStorage.removeItem(key);
   }
-  //退出
+  //与数据库交互退出
   function logout(successCb) {
-    LbUser.logout(function () {
-      if (window.plugins) {
-        window.plugins.jPushPlugin.stopPush();
-      }
+    User.logout(function () {
       clearLocalStorage();
       successCb();
     });

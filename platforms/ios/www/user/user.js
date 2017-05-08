@@ -1,6 +1,6 @@
 // Ionic Starter App
 angular.module('main.user', [])
-.config(function($stateProvider, $urlRouterProvider) {//利用此方法可以做一些注册工作，这些工作需要在模块加载时完成。
+  .config(function($stateProvider, $urlRouterProvider) {//利用此方法可以做一些注册工作，这些工作需要在模块加载时完成。
   $stateProvider
     .state('user', {//作为一个虚拟类,或者说是作用域名
     url: '/user',
@@ -14,10 +14,26 @@ angular.module('main.user', [])
   })
   .state('user.join', {
     url: '/join',
-    controller:"JoinCtrl",
+    controller:"JoinCtrl as ujc",
     templateUrl:"user/templates/join.html"
+  })
+  .state('user.rest', {
+    url: '/rest',
+    controller:"RestCtrl as urc",
+    templateUrl:"user/templates/rest.html"
+  })
+  .state('user.info', {
+    url: '/info',
+    controller:"UserInfoCtrl as uic",
+    templateUrl:"user/templates/info.html"
   })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/user/login');
+    console.log("come in user")
+  })
 
-});
+  //.run(function($ionicPlatform) {//用来启动你的应用，并且在注射器创建完成之后开始执行
+  //  $ionicPlatform.ready(function () {
+  //
+  //  })
+  //})

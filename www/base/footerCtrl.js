@@ -13,15 +13,33 @@ function FooterCtrl($scope, $rootScope, $location, $ionicHistory) {
     activeNav: '',
     footerList: ['chat','friends', 'space','user'],
     toggleNav: function (nav) {
-      console.log("toggleNav_nav",nav)
       var pagesSwitch = function () {
         $scope.views.activeNav = nav;
-        if(nav == "user"){
+        if(nav == "user"){//跳转到info
           nav= "info"
           var router = "user."+nav;
           console.log("toggleNav_nav",router)
           $rootScope.jump(router);
         }
+        if(nav == "space"){//跳转到space空间下
+          nav= "space"
+          var router = "space."+nav;
+          console.log("toggleNav_nav",router)
+          $rootScope.jump(router);
+        }
+        if(nav == "chat"){
+          nav= "chat"
+          var router = "home."+nav;
+          console.log("toggleNav_nav",router)
+          $rootScope.jump(router);
+        }
+        if(nav == "friends"){
+          nav= "friends"
+          var router = "home."+nav;
+          console.log("toggleNav_nav",router)
+          $rootScope.jump(router);
+        }
+
       };
       return pagesSwitch();
     }
@@ -34,7 +52,7 @@ function FooterCtrl($scope, $rootScope, $location, $ionicHistory) {
         locationParam = $location.search();
     var barrouter = locationRouter.split("/")
     console.log("***barrouter***", barrouter)
-    if (barrouter[1] == "home") {
+    if (barrouter[1] == "home" || barrouter[1] == "space") {
       $scope.views.isShowFooter = true;
     } else {
       $scope.views.isShowFooter = false;

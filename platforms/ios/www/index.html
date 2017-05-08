@@ -4,16 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
-
     <link rel="manifest" href="manifest.json">
-
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="bower_components/ionic/release/css/ionic.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" >
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-
     <!-- ionic/angularjs js
     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
     <script src="lib/ionic/js/ionic.js"></script>
@@ -44,19 +41,34 @@
     <script src="bower_components/async/dist/async.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <!-- your app's js -->
+    <script src="app.js"></script>
     <script src="lb-service.js"></script>
     <script src="base/main.js"></script>
     <script src="base/mainCtrl.js"></script>
     <script src="base/main-services.js"></script>
+    <script src="base/footerCtrl.js"></script>
     <script src="user/user.js"></script>
     <script src="user/controllers/user-login-ctrl.js"></script>
+    <script src="user/controllers/user-info-ctrl.js"></script>
+    <script src="user/controllers/user-rest-ctrl.js"></script>
+    <script src="user/controllers/user-join-ctrl.js"></script>
     <script src="user/services/services.js"></script>
-    <script src="app.js"></script>
+    <script src="home/home.js"></script>
+    <script src="home/services/services.js"></script>
+    <script src="home/controllers/home.js"></script>
+    <script src="space/space.js"></script>
+    <script src="space/services/services.js"></script>
+    <script src="space/controllers/space-space-ctrl.js"></script>
+    <script src="space/controllers/space-edit-ctrl.js"></script>
+    <script src="space/controllers/space-myspace-ctrl.js"></script>
   </head>
-  <body ng-app="Watermelon" ng-controller="BaseCtrl" class="platform-ios platform-cordova platform-webview">
+  <body ng-app='Watermelon' ng-controller="BaseCtrl">
+  <div ng-cloak class="ng-cloak">
+    <!--ng-clocak防止未加载完导致的问题-->
+    <ion-nav-view></ion-nav-view>
+    <ng-include src="'base/footer.html'"></ng-include>
+  </div>
   <!--
-  <body ng-app="main.user/Watermelon">
-
       The nav bar that will be updated as we navigate between views.-->
 
     <!--
@@ -64,6 +76,5 @@
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
-    <ion-nav-view></ion-nav-view>
   </body>
 </html>
