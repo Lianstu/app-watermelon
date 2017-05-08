@@ -1,0 +1,15 @@
+<ion-view can-swipe-back="false" class="edit-msg" cache-view="true">
+    <ion-header-bar class="watermelon-header">
+        <a class="button button-icon  ion-ios-arrow-left back" ng-click="goBack()"></a>
+        <h1 class="title title-center">发布心情</h1>
+        <a class=" button button-icon  ion-paper-airplane back"ng-click="postMyspace()"></a>
+    </ion-header-bar>
+    <ion-content>
+    <div >
+        <textarea class="moodinput" placeholder="记录此刻的心情..." name="mood"  rows="12" ng-model="views.mood"></textarea>
+    </div >
+    <div class = "moodbottom">
+        @2017记录好心情
+    </div>
+    </ion-content>
+</ion-view>

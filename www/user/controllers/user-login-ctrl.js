@@ -6,7 +6,6 @@ function LoginCtrl($log, $ionicHistory, $scope, $interval, $state, $stateParams,
   console.log("hello LoginCtrl ")
   var self = this;
   self.loginByPassword = loginByPassword;
-  ngUser.initJPush2Use();
 
   $scope.views = {
     mobile: '',
@@ -26,7 +25,7 @@ function LoginCtrl($log, $ionicHistory, $scope, $interval, $state, $stateParams,
             //todo
             //这个地方需要对socket做初始化;
             //做页面跳转
-            $state.go('home');
+            $state.go('home.home');
           }else{
             console.log("")
             MainService.alertMsg('登录失败，请重新尝试');

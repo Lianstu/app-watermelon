@@ -55,7 +55,7 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
   }
   //清除本地缓存退出
   function clearLocalStorage() {
-    $window.localStorage.clear();
+    return $window.localStorage.clear();
   }
 
   function getLocalStorage(key, defaultValue) {
@@ -66,8 +66,8 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
     return $window.localStorage.removeItem(key);
   }
   //与数据库交互退出
-  function logout(successCb) {
-    User.logout(function () {
+  function logout(appid,successCb) {
+    User.logout({id:appid},function () {
       clearLocalStorage();
       successCb();
     });

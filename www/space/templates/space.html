@@ -1,0 +1,27 @@
+<!--优惠券说明-->
+<ion-view can-swipe-back="false" class="space-msg" cache-view="true">
+    <ion-header-bar class="watermelon-header">
+        <a class="button button-icon  ion-ios-arrow-left back" ng-click="goBack()"></a>
+        <h1 class="title title-center">广场</h1>
+    </ion-header-bar>
+    <ion-content class="near-room">
+        <div class="content-list">
+            <div class="content-item" ng-click="getmyspace()">
+                <span class = "ion-planet active"></span>
+                <span class="space">我的广场</span>
+            </div>
+        </div>
+        <div class="content-list">
+            <div class="content-item" ng-click="jump('space.game')">
+                <span class="ion-ios-game-controller-b-outline"></span>
+                <span class="game">小游戏</span>
+            </div>
+        </div>
+        <div class="content-list">
+            <div class="content-item" ng-click="jump('space.edit')">
+                <span class="ion-edit"></span>
+                <span class="edit">关于作者</span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

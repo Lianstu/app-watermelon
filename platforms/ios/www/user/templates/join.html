@@ -17,13 +17,12 @@
                  name="tel"
                  required/>
         </label>
-        <label class="form-line">
+        <div class="form-line">
           <span class="form-label">验证码：</span>
-          <input class="form-text left" type="text" placeholder="请输入您的验证码" maxlength="11" ng-model="views.mobile"
-                 name="code"
-                 required/>
-          <a class="button button-small " ng-click="ulc.getVerificationCode()">获取验证码</a>
-        </label>
+          <input class="form-text left inherit-width" type="number" placeholder="请输入验证码" ng-model="views.verificationCode"
+                 name="verificationCode"/>
+          <a class="button button-small " ng-click="ujc.getVerificationCode()">{{views.verificationCodeText}}</a>
+        </div>
         <label class="form-line">
           <span class="form-label">登录密码：</span>
           <input class="form-text left" type="password" placeholder="请输入含字母的至少6位字符" ng-model="views.password"
