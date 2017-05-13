@@ -30,7 +30,15 @@ angular.module('Watermelon',[
     //LoopBackResourceProvider.setUrlBase('https://uclean-api.zhinengxiyifang.cn/api')
     LoopBackResourceProvider.setUrlBase('http://localhost:3000/api');
   }])
-  //.run(['$rootScope', '$ionicDeploy', '$ionicPlatform', '$log', function ($rootScope, $ionicDeploy, $ionicPlatform, $log) {
+
+//Function for unsubscribing..
+var unSubscribeAll = function(PubSub){
+    //Unsubscribe all listeners..
+    PubSub.unSubscribeAll();
+}
+
+
+//.run(['$rootScope', '$ionicDeploy', '$ionicPlatform', '$log', function ($rootScope, $ionicDeploy, $ionicPlatform, $log) {
     //$rootScope.href = window.location.href;
     //$rootScope.showRemainingTime = false;
     //$rootScope.showFrame = false;

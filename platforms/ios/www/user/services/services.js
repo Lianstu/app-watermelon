@@ -77,6 +77,7 @@ function NgUser($log, Appuser, User, Checkcode, LoopBackAuth, MainService, $root
 
     //用来保存用户信息到本地
     function setUserInfo(callback) {
+        //LoopBackAuth.currentUserData需要判断下是否存在
         MainService.setLocalStorage('currentUserData', LoopBackAuth.currentUserData);
         return callback();
     }

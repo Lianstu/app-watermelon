@@ -17,16 +17,22 @@ function PostMyspaceCtrl($log, $scope, ngUser, MainService, User, $ionicActionSh
             mycontent:$scope.views.mood,
             up: 0,
             count: 0,
-            userId: $scope.views.mobile
+            nickname: currentUserData.nickname
         }
         ngSpace.postmyspace(param,function(result){
             if(result){
-                $state.go("space.myspace")//跳转到myspace页面
+                ngSpace.getMyContent (function(res){//获取到数据
+                    console.log("SpaceCtrl_getmyspace",res)
+                    MainService.setLocalStorage("mycontent",res)
+                    $state.go("space.myspace")//跳转到myspace页面
+                },function(err){//打印错误
+                    console.log("SpaceCtrl_getMyContent_err",err)
+                    MainService.alertMsg("获取动态失败")
+                })
+
             }
         },function(err){
             console.log("err",err)
         })
-
-
     }
 }
