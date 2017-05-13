@@ -12,13 +12,33 @@ angular.module('Watermelon',[
   'main.home',
   'main.space'
 ])
-
+  .config(['$ionicAppProvider', '$ionicConfigProvider', function ($ionicAppProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.platform.ios.tabs.style('standard');
+    $ionicConfigProvider.platform.ios.tabs.position('bottom');
+    $ionicConfigProvider.platform.android.tabs.style('standard');
+    $ionicConfigProvider.platform.android.tabs.position('standard');
+    $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
+    $ionicConfigProvider.platform.android.navBar.alignTitle('bottom');//默认为left
+    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
+    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
+    $ionicConfigProvider.platform.ios.views.transition('ios');
+    $ionicConfigProvider.platform.android.views.transition('android');
+    $ionicConfigProvider.scrolling.jsScrolling(true);
+  }])
   .config(['LoopBackResourceProvider', function (LoopBackResourceProvider) {
     // Change the URL where to access the LoopBack REST API server
     //LoopBackResourceProvider.setUrlBase('https://uclean-api.zhinengxiyifang.cn/api')
     LoopBackResourceProvider.setUrlBase('http://localhost:3000/api');
   }])
-  //.run(['$rootScope', '$ionicDeploy', '$ionicPlatform', '$log', function ($rootScope, $ionicDeploy, $ionicPlatform, $log) {
+
+//Function for unsubscribing..
+var unSubscribeAll = function(PubSub){
+    //Unsubscribe all listeners..
+    PubSub.unSubscribeAll();
+}
+
+
+//.run(['$rootScope', '$ionicDeploy', '$ionicPlatform', '$log', function ($rootScope, $ionicDeploy, $ionicPlatform, $log) {
     //$rootScope.href = window.location.href;
     //$rootScope.showRemainingTime = false;
     //$rootScope.showFrame = false;

@@ -5,41 +5,30 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
     <link rel="manifest" href="manifest.json">
-    <link href="bower_components/ionic/release/css/ionic.css" rel="stylesheet">
+    <link href="../bower_components/ionic/release/css/ionic.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" >
-
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-    <!-- ionic/angularjs js
-    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
-    <script src="lib/ionic/js/ionic.js"></script>
-    <script src="lib/ionic/js/ionic-angular.js"></script>
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular-animate/angular-animate.js"></script>
-    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
-    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
-    <script src="lib/ionic-service-deploy/ionic-deploy.js"></script>
-    <script src="lib/ionic-service-core/ionic-core.js"></script>
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/ionic/release/js/ionic.js"></script>
-    <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
-    <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
-    <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-live-set/dist/live-set.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/ionic-service-core/ionic-core.js"></script>
-    <script src="bower_components/ionic-service-deploy/ionic-deploy.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/async/dist/async.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
+    <!--<script src="../bower_components/jquery/dist/jquery.js"></script>-->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/ionic/release/js/ionic.js"></script>
+    <script src="../bower_components/ionic/release/js/ionic-angular.js"></script>
+    <script src="../bower_components/ngCordova/dist/ng-cordova.js"></script>
+    <script src="../bower_components/angular-gettext/dist/angular-gettext.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-live-set/dist/live-set.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/ionic-service-core/ionic-core.js"></script>
+    <script src="../bower_components/ionic-service-deploy/ionic-deploy.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="../bower_components/async/dist/async.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <!--<script src="../bower_components/socket.io/lib/client.js"></script>-->
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <!-- your app's js -->
     <script src="app.js"></script>
     <script src="lb-service.js"></script>
@@ -55,14 +44,21 @@
     <script src="user/services/services.js"></script>
     <script src="home/home.js"></script>
     <script src="home/services/services.js"></script>
+    <script src="home/services/socket.js"></script>
+    <script src="home/services/pubsub.js"></script>
     <script src="home/controllers/home.js"></script>
+    <script src="home/controllers/home_friends_ctrl.js"></script>
+    <script src="home/controllers/home_chatdetail_ctrl.js"></script>
+    <script src="home/controllers/home_chat_ctrl.js"></script>
+    <script src="home/controllers/home_addfriend_ctrl.js"></script>
     <script src="space/space.js"></script>
     <script src="space/services/services.js"></script>
     <script src="space/controllers/space-space-ctrl.js"></script>
     <script src="space/controllers/space-edit-ctrl.js"></script>
     <script src="space/controllers/space-myspace-ctrl.js"></script>
+    <script src="space/controllers/space-post-ctrl.js"></script>
   </head>
-  <body ng-app='Watermelon' ng-controller="BaseCtrl">
+  <body ng-app='Watermelon' ng-controller="BaseCtrl" class="platform-ios platform-cordova platform-webview">
   <div ng-cloak class="ng-cloak">
     <!--ng-clocak防止未加载完导致的问题-->
     <ion-nav-view></ion-nav-view>

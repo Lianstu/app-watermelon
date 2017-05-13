@@ -39,6 +39,12 @@ function FooterCtrl($scope, $rootScope, $location, $ionicHistory) {
           console.log("toggleNav_nav",router)
           $rootScope.jump(router);
         }
+        if(nav == "chat"){
+          nav= "chat"
+          var router = "home."+nav;
+          console.log("toggleNav_nav",router)
+          $rootScope.jump(router);
+        }
 
       };
       return pagesSwitch();
@@ -52,7 +58,7 @@ function FooterCtrl($scope, $rootScope, $location, $ionicHistory) {
         locationParam = $location.search();
     var barrouter = locationRouter.split("/")
     console.log("***barrouter***", barrouter)
-    if (barrouter[1] == "home" || barrouter[1] == "space") {
+    if (barrouter[1] == "home" || barrouter[1] == "space" || barrouter[1] == "friends" || barrouter[1] == "chat") {
       $scope.views.isShowFooter = true;
     } else {
       $scope.views.isShowFooter = false;

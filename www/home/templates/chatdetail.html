@@ -1,0 +1,45 @@
+<ion-view can-swipe-back="false" class="home-msg" cache-view="true">
+    <ion-header-bar class="watermelon-header">
+        <a class="button button-icon  ion-ios-arrow-left back" ng-click="goBack()"></a>
+        <h1 class="title title-center">"{{messageDetils.name}}"</h1>
+    </ion-header-bar>
+    <!--test-->
+    <ion-content class="rj-stable-content" delegate-handle="messageDetailsScroll" id="message-detail-content">
+        <!--<ion-refresher pulling-text="..." on-refresh="doRefresh()" pulling-icon=""></ion-refresher>-->
+        <div ng-repeat="item in messageDetils.message">
+            <p class="rj-message-time" ng-bind="item.time" ng-if="false"></p>
+            <div class="rj-message-wrap" ng-if="!item.isFromeMe">
+                <img ng-src="{{messageDetils.pic}}" class="rj-head-pic">
+                <span class="rj-triangle-left"></span>
+                <p class="rj-message" ng-bind="item.content"></p>
+            </div>
+            <div class="rj-message-wrap" ng-if="item.isFromeMe">
+                <img src="img/avater.jpg" class="rj-head-pic-right">
+                <span class="rj-triangle-right"></span>
+                <p class="rj-message-right" ng-bind="item.content"></p>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar align-title="left" class="bar-light">
+        <div class="rj-footer-btn-wrap">
+            <button class="button button-icon icon ion-ios-mic-outline rj-footer-btn-left">
+            </button>
+        </div>
+        <label class="item item-input rj-footer-input">
+            <textarea  style="resize: none"  ng-model="send_content"></textarea>
+            <!--<div class="buttons">-->
+                <!--<button class="rj-footer-btn button button-icon icon ion-happy-outline"></button>-->
+            <!--</div>-->
+        </label>
+        <div class="rj-footer-btn-wrap">
+            <div class="buttons" ng-show="!send_content || send_content === ''">
+                <button class="button button-icon icon ion-ios-plus-outline rj-footer-btn-left">
+                </button>
+            </div>
+            <a  class="rj-send-button" ng-hide="!send_content || send_content === ''" ng-click="cdc.sendmessage()">发送</a>
+            <!--<div class="rj-send-button" ng-hide="!send_content || send_content === ''">-->
+
+            <!--</div>-->
+        </div>
+    </ion-footer-bar>
+</ion-view>

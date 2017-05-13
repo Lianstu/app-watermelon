@@ -18,30 +18,39 @@
                 <!--<span>廉小帅</span>-->
             <!--</div>-->
         <!--</div>-->
-        <div>
+        <div ng-repeat="item in datas">
             <div class="spacecontent">
                 <div class="top">
                     <div class = "spaceavater">
                         <img class="logo-icon" src="img/avater.jpg"/>
                     </div>
                     <div class = "naickname">
-                        <span>廉小帅</span>
+                        <span style="color:#3C9FE8">{{item.mycontentresult.nickname}}</span>
                     </div>
                 </div>
                 <div class = "content">
-                    <div style="">Hello World</div>
+                    <div style="">{{item.mycontentresult.content}}</div>
                 </div>
                 <div class = "interaction">
-                    <div class="time"> 浏览次数 </div>
-                    <div class="thump_message">
-                        <a class="button button-icon  ion-thumbsup thump" ng-click=""></a>
-                        <a class="button button-icon  ion-chatbox-working message" ng-click=""></a>
+                    <div class="time"> {{item.mycontentresult.createAt}} </div>
+                    <!--<div class="thump_message">-->
+                        <!--<a class="button button-icon  ion-thumbsup thump" ng-click=""></a>-->
+                        <!--<a class="button button-icon  ion-chatbox-working message" ng-click=""></a>-->
+                    <!--</div>-->
+                </div>
+                <div class="comment_wrap">
+                    <label class="item item-input comment">
+                        <textarea  placeholder="评论..." style="resize: none; padding-top: 15px;text-align: left;" ng-model="item.send_comment" ></textarea>
+                    </label>
+                    <div class = "comment-btn_wrap">
+                        <a  class="comment-button"  ng-click="msc.sendcomment(item)">发送</a>
                     </div>
                 </div>
             </div>
-            <div class="review">
+            <!--<div class="review" ng-repeat="item_rew in item.con_review" >-->
+            <div class="review" ng-repeat="item_rew in item.con_review">
                 <div class="reviewlistback">
-                    <div class="reviewlist" >廉小帅:I Want world peace</div>
+                    <div class="reviewlist" ><span style="color:#3C9FE8 ">{{item_rew.nickname}}</span>:{{item_rew.comment}}</div>
                 </div>
             </div>
         </div>

@@ -13,17 +13,27 @@ angular.module('main.home', [])
             .state('home.home', {
                 url: '/home',
                 //controller:"LoginCtrl as ulc",
-                templateUrl:"home/templates/home.html"
+                templateUrl:"home/templates/chat.html"
             })
             .state('home.chat', {
                 url: '/chat',
-                //controller:"LoginCtrl as ulc",
-                templateUrl:"home/templates/home.html"
+                controller:"ChatCtrl as ctc",
+                templateUrl:"home/templates/chat.html"
             })
             .state('home.friends', {
                 url: '/friends',
                 controller:"FriendCtrl as fdc",
-                templateUrl:"home/templates/friends.html"
+                templateUrl:"home/templates/friend.html"
+            })
+            .state('home.addfriends', {
+                url: '/addfriends',
+                controller:"AddFriendCtrl as afdc",
+                templateUrl:"home/templates/addfriend.html"
+            })
+            .state('home.chat-chatdetail', {//这个state未使用到,用的是url
+                url: '/chats/:chatId',
+                controller:"ChatDetailCtrl as cdc",
+                templateUrl:"home/templates/chatdetail.html"
             })
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/home/home');

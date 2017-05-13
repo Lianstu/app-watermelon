@@ -11,7 +11,6 @@ function LoginCtrl($log, $ionicHistory, $scope, $interval, $state, $stateParams,
     mobile: '',
     password: ''
   }
-
   function loginByPassword() {
     ngUser.validateMobile($scope.views.mobile,function(){//验证手机号成功逻辑
       ngUser.validatePassword($scope.views.password,function(){//验证密码是否为空以及少于六位
