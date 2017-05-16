@@ -2,8 +2,20 @@
     <ion-header-bar class="watermelon-header">
         <a class="button button-icon  ion-ios-arrow-left back" ng-click="goBack()"></a>
         <h1 class="title title-center">添加好友</h1>
+        <a class="button button-icon  back" ng-hide="views.mobile === '' " ng-click="afdc.addfriend()">发送</a>
     </ion-header-bar>
     <ion-content>
-        添加好友
+        <label class="item item-input">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input placeholder="search mobile" ng-model="views.searchmobile" type="tel">
+        </label>
+        <label class="item" ng-hide=" views.searchmobile === ''" ng-click="afdc.searchmobile(views.searchmobile)">
+            <label  class="button button-small ion-ios-search"></label>
+            <a  class="button button-small  button-light">Seach: {{views.searchmobile}}</a>
+        </label>
+        <label class="item" ng-hide="views.mobile === '' ">
+            <!--<span>您将添加昵称为{{views.mobile}}的用户为好友</span>-->
+            <input placeholder="请填写验证消息" ng-model="views.message" type="text">
+        </label>
     </ion-content>
 </ion-view>

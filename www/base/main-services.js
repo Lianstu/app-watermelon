@@ -10,12 +10,24 @@ function mainService($log, $window, $cordovaDialogs, $rootScope, $cordovaGeoloca
   return {
     alertMsg: alertMsg,
     confirmMsg: confirmMsg,
+    setLocalStorage: setmessagearray,
+    getLocalStorage: getmessagearray,
+    removeLocalStorage: removemessagebyid,
     setLocalStorage: setLocalStorage,
     getLocalStorage: getLocalStorage,
     removeLocalStorage: removeLocalStorage,
     logout: logout,
     logout2: logout2
   };
+  function setmessagearray (name,key){
+
+  }
+  function getmessagearray (name,key){
+
+  }
+  function removemessagebyid (name,key){
+
+  }
   function alertMsg(title, message, button, successCb) {
     button = button ? button : '确定';
     $cordovaDialogs.alert(message, title, button).then(function () {

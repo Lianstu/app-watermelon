@@ -2,8 +2,8 @@
  * Created by lianshaoshuai on 17/4/25.
  */
 angular.module("main.home")
-    .factory("ngHome",['$log', '$rootScope', 'MainService','Content','ngUser',ngHome])
-function ngHome(){
+    .factory("ngHome",['$log', '$rootScope', 'MainService','Content','ngUser','Chat',ngHome])
+function ngHome($log, $rootScope, MainService,Content,ngUser,Chat){
     var chats = [{
         id: 0,
         name: 'Ben Sparrow',
@@ -211,11 +211,57 @@ function ngHome(){
         "showHints": false,
         "isTop": 0
     }]
+
     return {
+        findmyfriend:findmyfriend,
+        isaccepted:isaccepted,
+        addfriend:addfriend,
+        existfriend: existfriend,//添加好友前的查找
+        chatpost : chatpost,
         chatall: chatall,
         removechat:removechat,
         getchatbyid: getchatbyid,
         friendsall:friendsall //获取好友列表
+    }
+    function findmyfriend(sucb,errcb){
+        Chat.findmyfriend({id:ngUser.getUserInfo().lbuserId},function(result){
+            sucb(result)
+        },function(err){
+            errcb(err)
+        })
+    }
+    function isaccepted(mobile,option,subcb,errcb){
+        console.log("isaccepted",mobile,typeof mobile,option)
+        Chat.isaccepted({hermobile:mobile,options:option},{id:ngUser.getUserInfo().lbuserId},function(result){
+            subcb(result)
+        },function(err){
+            errcb(err)
+        })
+    }
+
+    function addfriend(mobile,message,sucb,errcb){
+        Chat.addfriend({mobile:mobile,message:message},{id:ngUser.getUserInfo().lbuserId},function(result){
+            sucb(result)
+        },function(err){
+            errcb(err)
+        })
+    }
+    function existfriend(mobile,sucb,errcb){
+        Chat.existFriend({mobile:mobile},{id:ngUser.getUserInfo().lbuserId},function(result){
+            sucb(result)
+        },function(err){
+            errcb(err)
+        })
+    }
+    function chatpost (chatdata,successcb,errcb){
+        console.log("ngHome_chatpost_chatdata",chatdata)
+        Chat.ChatwithFriend({pubsub:chatdata},{id:ngUser.getUserInfo().lbuserId},function(result){//正确处理
+            console.log("***Chat.create_result***",result)
+            successcb(result)
+        },function(err){//post错误处理
+            console.log("***Chat.create_err***",err)
+            errcb(err)
+        })
     }
     function friendsall() {
         return friends;
