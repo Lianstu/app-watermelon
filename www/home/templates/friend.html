@@ -5,6 +5,34 @@
     </ion-header-bar>
     <ion-content>
         <ion-list>
+            <a class="item item-icon-left item-divider" ng-click="opennewfriend()" >
+                <i class="icon ion-ios-plus-outline "></i>
+                新朋友
+                <span  ng-hide="views.addmessage == '' " class="badge badge-assertive">{{views.addmessage}}</span>
+            </a>
+            <div ng-show="views.openaddfriendlist">
+                <ion-item class="item-remove-animate" ng-hide="views.isacceptedoption == '' ">
+                    <span ng-show ="views.isacceptedoption.options == '1'">{{views.isacceptedoption.mobile}}同意添加您好友</span>
+                    <span ng-show ="views.isacceptedoption.options == '2'">{{views.isacceptedoption.mobile}}拒绝添加您好友</span>
+                    <ion-option-button class="button_positive" ng-click="remove(message)">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+
+                <ion-item class="item-remove-animate" ng-repeat="message in views.messages">
+                     <span>{{message.mobile}}加您好友,附加消息:{{message.message}}</span>
+                    <ion-option-button class="button_positive" ng-click="isaccepted(1,message.mobile)">
+                        同意
+                    </ion-option-button>
+                    <ion-option-button class="button-assertive" ng-click="isaccepted(2,message.mobile)">
+                        拒绝
+                    </ion-option-button>
+                </ion-item>
+            </div>
+
+            <div class="item item-divider">
+                好友列表
+            </div>
             <ion-item class="item-remove-animate item-avatar item-icon-right " ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
                 <img ng-src="{{friend.face}}">
                 <!--<h2>{{friend.name}}</h2>-->

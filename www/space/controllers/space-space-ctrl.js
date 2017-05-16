@@ -18,5 +18,10 @@ function SpaceCtrl ($log,$scope,ngUser,MainService,User,$ionicActionSheet,ngSpac
             MainService.alertMsg("获取动态失败")
         })
     }
+    if(ngUser.getUserInfo()){
+        console.log("已登录")
+    }else {
+        $state.go("user.login")
+    }
 }
 

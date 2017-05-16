@@ -5099,21 +5099,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name lbServices.Chat#existFriend
+             * @name lbServices.Chat#someRemoteMethod
              * @methodOf lbServices.Chat
              *
              * @description
              *
-             * 是否存在该好友
+             * <em>
+             * (The remote method definition does not provide any description.)
+             * </em>
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `mobile` – `{string}` -
+             *  - `id` – `{number}` -
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -5125,93 +5122,11 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *   populated with the actual data once the response is returned
              *   from the server.
              *
-             * Data properties:
-             *
-             *  - `isexist` – `{string=}` -
+             * This method returns no data.
              */
-            "existFriend": {
-              url: urlBase + "/chats/existFriend",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Chat#addfriend
-             * @methodOf lbServices.Chat
-             *
-             * @description
-             *
-             * 添加好友
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `req` – `{object=}` - {mobile:18262277905,message:'廉小帅'}
-             *
-             *  - `mobile` – `{string=}` - 18262277905
-             *
-             *  - `message` – `{string=}` - 我是廉小帅
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `sendaddfriendsmes` – `{string=}` -
-             */
-            "addfriend": {
-              url: urlBase + "/chats/addfriend",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name lbServices.Chat#isaccepted
-             * @methodOf lbServices.Chat
-             *
-             * @description
-             *
-             * 是否同意添加好友
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `hermobile` – `{string}` -
-             *
-             *  - `options` – `{string}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `result` – `{string=}` -
-             */
-            "isaccepted": {
-              url: urlBase + "/chats/isaccepted",
-              method: "POST",
+            "someRemoteMethod": {
+              url: urlBase + "/chats/:id/some-remote-method",
+              method: "GET",
             },
           }
         );
